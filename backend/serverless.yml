@@ -1,0 +1,33 @@
+service: backend
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-browserify
+
+package:
+  individually: true
+
+functions:
+  getIssues:
+    handler: dist/backend/index.getIssues
+    events:
+      - httpApi:
+          path: /get-issues
+          method: get
+  saveIssue:
+    handler: dist/backend/index.saveIssue
+    events:
+      - httpApi:
+          path: /save-issue
+          method: post
+  deleteIssues:
+    handler: dist/backend/index.deleteIssue
+    events:
+      - httpApi:
+          path: /delete-issue
+          method: delete

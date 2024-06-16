@@ -1,0 +1,1 @@
+export class InternalErrorException extends Error {}

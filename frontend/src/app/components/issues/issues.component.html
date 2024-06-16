@@ -1,0 +1,30 @@
+<div class="list-wrapper">
+    @for (item of items(); track $index) {
+        <mat-card class="issue-card">
+            <mat-card-header>
+                <mat-card-title>
+                    {{item.category}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{item.id}}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                @for (description of item.description.split("\n"); track $index) {
+                    <p>
+                        {{description}}
+                    </p>
+                }
+            </mat-card-content>
+            <mat-card-actions align="end">
+                @if (item.id) {
+                    <button mat-button (click)="deleteIssue(item.id)">Delete</button>
+                }
+            </mat-card-actions>
+        </mat-card>
+    }
+</div>
+
+<div class="form-wrapper">
+    <app-form [(form)]="form" (formSaved)="saveIssue()"></app-form>
+</div>

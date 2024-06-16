@@ -1,0 +1,15 @@
+.list-wrapper {
+    width: 95%;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.form-wrapper {
+    width: 95%;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.issue-card {
+    margin-bottom: 1rem;
+}
